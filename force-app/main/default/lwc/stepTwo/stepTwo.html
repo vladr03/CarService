@@ -1,10 +1,25 @@
 <template>
     <div class="slds-panel slds-size_large slds-panel_docked slds-panel_docked-left slds-is-open" aria-hidden="false">
         <div class="slds-panel__header">
-            <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" title="Panel Header">Panel Header
+            <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" title="Panel Header">New Skill
+                Requirement
             </h2>
-
         </div>
-        <div class="slds-panel__body">A panel body accepts any layout or component</div>
+        <div class="slds-panel__body">
+            <lightning-record-edit-form object-api-name="SkillRequirement" onsuccess={handleSuccess}>
+                <div>
+                    <div>
+                        <lightning-input-field field-name={relatedField} value={workTypeId}></lightning-input-field>
+                        <lightning-input-field field-name={skillField}></lightning-input-field>
+                        <lightning-input-field field-name={levelField}></lightning-input-field>
+                    </div>
+                    <div style="display: flex; justify-content: right; margin-right: 5px;">
+                        <lightning-button class="slds-float_left" variant="brand" label="Next"
+                            onclick={theSecondStepHandler}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </lightning-record-edit-form>
+        </div>
     </div>
 </template>
