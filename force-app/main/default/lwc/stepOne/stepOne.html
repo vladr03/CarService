@@ -1,24 +1,39 @@
 <template>
-    <lightning-card title="New Work Type">
-
-        <lightning-record-edit-form object-api-name="WorkType" onsuccess={handleSuccess}>
-            <div>
-                <div>
-                    <lightning-input-field field-name={nameField}></lightning-input-field>
-                    <lightning-input-field field-name={descriptionField}></lightning-input-field>
-                    <lightning-input-field field-name={durationField}></lightning-input-field>
-                </div>
-                <div>
-                    <lightning-input-field field-name={typeField}></lightning-input-field>
-                </div>
-                <div>
-                    <lightning-input-field field-name={autoField}></lightning-input-field>
-                </div>
-                <div style="display: flex; justify-content: right; margin-right: 5px;">
-                    <lightning-button class="slds-float_left" variant="brand" type="submit" label="Next">
-                    </lightning-button>
-                </div>
+    <template if:false={isFormCompleted}>
+        <div class="slds-panel slds-size_large slds-panel_docked slds-panel_docked-left slds-is-open"
+            aria-hidden="false">
+            <div class="slds-panel__header">
+                <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" style="text-align: center;">
+                    New
+                    Work Type
+                </h2>
             </div>
-        </lightning-record-edit-form>
-    </lightning-card>
+            <div class="slds-panel__body">
+                <lightning-record-edit-form object-api-name="WorkType" onsuccess={handleSuccess}>
+                    <div>
+                        <div>
+                            <lightning-input-field field-name={nameField}></lightning-input-field>
+                            <lightning-input-field field-name={descriptionField}></lightning-input-field>
+                            <lightning-input-field field-name={durationField}></lightning-input-field>
+                        </div>
+                        <div>
+                            <lightning-input-field field-name={typeField}></lightning-input-field>
+                        </div>
+                        <div>
+                            <lightning-input-field field-name={autoField}></lightning-input-field>
+                        </div>
+                        <div style="display: flex; justify-content: right; margin-right: 5px;">
+                            <lightning-button class="slds-float_left" variant="brand" label="Next"
+                                onclick={theSecondStepHandler}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </lightning-record-edit-form>
+
+            </div>
+        </div>
+    </template>
+    <template if:true={isFormCompleted}>
+        <c-step-two></c-step-two>
+    </template>
 </template>
