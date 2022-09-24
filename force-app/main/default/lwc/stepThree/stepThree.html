@@ -1,0 +1,27 @@
+<template>
+    <template if:false={isFormCompleted}>
+        <div class="slds-panel slds-size_large slds-panel_docked slds-panel_docked-left slds-is-open"
+            aria-hidden="false">
+            <div style="text-align: center;" class="slds-panel__header">
+                <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" title="Panel Header"
+                    style="text-align: center;">New
+                    Product Required
+                </h2>
+            </div>
+            <div class="slds-panel__body">
+                <lightning-record-edit-form object-api-name="ProductRequired" onsuccess={handleSuccess}>
+                    <lightning-input-field field-name={parentField} value={workTypeId}></lightning-input-field>
+                    <lightning-input-field field-name={productField}></lightning-input-field>
+                    <lightning-input-field field-name={quantityField}></lightning-input-field>
+                    <lightning-input-field field-name={quantityUnitField}></lightning-input-field>
+                    <div style="display: flex; justify-content: right; margin-right: 5px;">
+                        <lightning-button class="slds-float_left" variant="brand" label="Next" type="submit">
+                        </lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </div>
+        </div>
+    </template>
+    <template if:true={isFormCompleted}>
+    </template>
+</template>

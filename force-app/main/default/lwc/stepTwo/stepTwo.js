@@ -10,4 +10,15 @@ export default class StepTwo extends LightningElement {
     relatedField = RELATED_FIELD;
     skillField = SKILL_FIELD;
     levelField = LEVEL_FIELD;
+    isFormCompleted = false;
+
+    handleSuccess(event) {
+        const evt = new ShowToastEvent({
+            title: "Skill Requirement created",
+            variant: "success"
+        });
+        this.dispatchEvent(evt);
+        this.isFormCompleted = true;
+        console.log(this.workTypeId);
+    }
 }
