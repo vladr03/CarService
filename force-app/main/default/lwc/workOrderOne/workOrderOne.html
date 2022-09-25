@@ -1,0 +1,35 @@
+<template>
+    <template if:false={isFormCompleted}>
+        <div class="slds-panel slds-size_x-large slds-panel_docked slds-panel_docked-left slds-is-open"
+            aria-hidden="false">
+            <div class="slds-panel__header">
+                <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" style="text-align: center;">
+                    New Work Order
+                </h2>
+            </div>
+            <div class="slds-panel__body">
+
+                <lightning-record-edit-form object-api-name="WorkOrder" onsuccess={handleSuccess}>
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input-field field-name={statusField}></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input-field field-name={priorityField}></lightning-input-field>
+                            <lightning-input-field field-name={typeField}></lightning-input-field>
+                        </div>
+                    </div>
+                    <lightning-input-field field-name={subjectField}></lightning-input-field>
+                    <lightning-input-field field-name={descriptionField}></lightning-input-field>
+                    <div style="display: flex; justify-content: right; margin-right: 5px;">
+                        <lightning-button class="slds-float_left" variant="brand" type="submit" label="Save">
+                        </lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+
+            </div>
+        </div>
+    </template>
+    <template if:true={isFormCompleted}>
+    </template>
+</template>
