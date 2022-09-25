@@ -1,5 +1,5 @@
 <template>
-    <div class="slds-panel slds-size_large slds-panel_docked slds-panel_docked-left slds-is-open" aria-hidden="false">
+    <div class="slds-panel slds-size_x-large slds-panel_docked slds-panel_docked-left slds-is-open" aria-hidden="false">
         <div class="slds-panel__header">
             <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" style="text-align: center;">
                 New
@@ -11,7 +11,7 @@
             <lightning-record-edit-form object-api-name="ProductItem" onsuccess={handleSuccess}>
                 <div class="slds-grid">
                     <div class="slds-col slds-size_1-of-2">
-                        <lightning-input-field field-name={productField} value={productId}></lightning-input-field>
+                        <lightning-input-field field-name={productField}></lightning-input-field>
                         <lightning-input-field field-name={quantityOnHandField}></lightning-input-field>
                         <lightning-input-field field-name={numberField}></lightning-input-field>
                     </div>

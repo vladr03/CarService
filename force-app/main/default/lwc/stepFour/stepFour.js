@@ -7,7 +7,6 @@ import QUANTITY_UNIT_OF_MEASURE_FIELD from '@salesforce/schema/ProductItem.Quant
 import NUMBER_FIELD from '@salesforce/schema/ProductItem.SerialNumber';
 
 export default class StepFour extends LightningElement {
-    @api productId;
     productField = PRODUCT_FIELD;
     locationField = LOCATION_FIELD;
     quantityOnHandField = QUANTITY_ON_HAND_FIELD;
