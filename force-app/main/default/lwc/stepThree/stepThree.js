@@ -10,15 +10,17 @@ export default class StepThree extends LightningElement {
     @api workTypeId;
     parentField = PARENT_FIELD;
     productField = PRODUCT_FIELD;
-    isFormCompleted = false;
     quantityField = QUANTITY_FIELD;
     quantityUnitField = QUANTITY_UNIT_FIELD;
+    isFormCompleted = false;
+    productId;
     handleSuccess(event) {
         const evt = new ShowToastEvent({
             title: "Product Required created",
             variant: "success"
         });
         this.dispatchEvent(evt);
+        this.productId = event.detail.id;
         this.isFormCompleted = true;
         console.log(this.workTypeId);
     }
