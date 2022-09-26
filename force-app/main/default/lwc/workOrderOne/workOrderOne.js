@@ -13,11 +13,14 @@ export default class WorkOrderOne extends LightningElement {
     descriptionField = DESCRIPTION_FIELD;
     subjectField = SUBJECT_FIELD;
     isFormCompleted = false;
+    workOrderId;
     handleSuccess(event) {
         const evt = new ShowToastEvent({
             title: "Work Order created",
             variant: "success"
         });
+        this.workOrderId = event.detail.id;
+        console.log(this.workOrderId);
         this.isFormCompleted = true;
         this.dispatchEvent(evt);
     }
